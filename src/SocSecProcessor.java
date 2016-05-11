@@ -5,10 +5,12 @@ public class SocSecProcessor {
 	public static void main(String[] args) {
 		String name, socSecNumber;
 		char nextChar;
+		Scanner keyboard;
+
 
 
 		do {
-			Scanner keyboard = new Scanner(System.in);
+			keyboard = new Scanner(System.in);
 			System.out.print("Name? ");
 			name = keyboard.nextLine();
 			System.out.print("SSN? ");
@@ -23,9 +25,9 @@ public class SocSecProcessor {
 			}
 			System.out.print("Continue? ");
 			nextChar = keyboard.next().charAt(0);
-			keyboard.close();
 		} while (nextChar == 'y' || nextChar == 'Y');
-		
+		keyboard.close();
+
 
 	}
 
