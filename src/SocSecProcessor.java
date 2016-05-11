@@ -14,11 +14,11 @@ public class SocSecProcessor {
 		do {
 			try {
 				if(isValid(socSecNumber)){
-					System.out.print("Name: " + name + " SSN: " + socSecNumber);
+					System.out.println("Name: " + name + " SSN: " + socSecNumber);
 				}
 			}
 			catch (SocSecException e){
-				System.out.print("Name: " + name + " SSN entered: " + socSecNumber + e.getMessage());
+				System.out.println("Name: " + name + " SSN entered: " + socSecNumber + " " + e.getMessage());
 			}
 
 			System.out.print("Continue? ");
@@ -39,7 +39,8 @@ public class SocSecProcessor {
 					throw new SocSecException("Incorrect hyphen placement");
 				}
 			}
-			else if(!Character.isDigit(x)) {
+			else if(!Character.isDigit(ssn.charAt(x))) {
+				System.out.println(x);
 				throw new SocSecException("Non-numeric character");
 			}
 		}
