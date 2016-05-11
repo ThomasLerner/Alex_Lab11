@@ -14,17 +14,18 @@ public class SocSecProcessor {
 		do {
 			try {
 				if(isValid(socSecNumber)){
-					System.out.print(name + " " + socSecNumber);
+					System.out.print("Name: " + name + " SSN: " + socSecNumber);
 				}
 			}
 			catch (SocSecException e){
-
-
+				System.out.print("Name: " + name + " SSN entered: " + socSecNumber + e.getMessage());
 			}
 
 			System.out.print("Continue? ");
 			nextChar = keyboard.next().charAt(0);
 		} while (nextChar == 'y' || nextChar == 'Y');
+		
+		keyboard.close();
 
 	}
 
