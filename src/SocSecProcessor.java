@@ -42,5 +42,6 @@ public class SocSecProcessor {
 				throw new SocSecException("Non-numeric character");
 			}
 		}
+		return true;
 	}
 }
