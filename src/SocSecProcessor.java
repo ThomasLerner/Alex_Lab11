@@ -38,7 +38,7 @@ public class SocSecProcessor {
 					throw new SocSecException("Incorrect hyphen placement");
 				}
 			}
-			else if(ssn.charAt(x) > 57 || ssn.charAt(x) < 48) {
+			else if(!Character.isDigit(x)) {
 				throw new SocSecException("Non-numeric character");
 			}
 		}
