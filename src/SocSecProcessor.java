@@ -5,13 +5,14 @@ public class SocSecProcessor {
 	public static void main(String[] args) {
 		String name, socSecNumber;
 		char nextChar;
-		Scanner keyboard = new Scanner(System.in);
-		System.out.print("Name? ");
-		name = keyboard.nextLine();
-		System.out.print("SSN? ");
-		socSecNumber = keyboard.nextLine();
+
 
 		do {
+			Scanner keyboard = new Scanner(System.in);
+			System.out.print("Name? ");
+			name = keyboard.nextLine();
+			System.out.print("SSN? ");
+			socSecNumber = keyboard.nextLine();
 			try {
 				if(isValid(socSecNumber)){
 					System.out.println("Name: " + name + " SSN: " + socSecNumber);
@@ -20,12 +21,11 @@ public class SocSecProcessor {
 			catch (SocSecException e){
 				System.out.println("Name: " + name + " SSN entered: " + socSecNumber + " " + e.getMessage());
 			}
-
 			System.out.print("Continue? ");
 			nextChar = keyboard.next().charAt(0);
+			keyboard.close();
 		} while (nextChar == 'y' || nextChar == 'Y');
 		
-		keyboard.close();
 
 	}
 
@@ -40,7 +40,6 @@ public class SocSecProcessor {
 				}
 			}
 			else if(!Character.isDigit(ssn.charAt(x))) {
-				System.out.println(x);
 				throw new SocSecException("Non-numeric character");
 			}
 		}
